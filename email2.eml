@@ -1,0 +1,601 @@
+Delivered-To: anmolbudhewar8@gmail.com
+Received: by 2002:a05:6402:3059:b0:643:12a3:48d7 with SMTP id 25csp1969302edi;
+        Mon, 15 Dec 2025 05:37:24 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFWkTTolRh1g83+oKxkXEXU2vuG6QWp/jcBmzFkKmDdv9rJUBPQm1FnukByQGQdzb1TrWsp
+X-Received: by 2002:a05:6214:3101:b0:785:aa57:b5bb with SMTP id 6a1803df08f44-8887e7dbeb9mr144082736d6.43.1765805843928;
+        Mon, 15 Dec 2025 05:37:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765805843; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BF704w3qKG94BMdK5Ecn1KeE/mPWXhDp6h1suT5VRCX2k9eWRU6MFfKTqChiazP09M
+         lFpWk2WXK21Fsffv9U4Y8JZNvMWsahRvHQoOc+sW/CtccptfEN2G3AT6hLcd2g6TVlux
+         9giI1xPbKCb0Zt8CfSiacfXNnywmEa4clOpVZYD5Tj8B3GmHXqIA2yEo3QK3CJuIywN/
+         Kb11/6xeFLraUt+D5XmQzph2eJIvJaARIIdZEk66L/En5oLmGiap+JZfod3HxmyLTp9r
+         ifHJwAn7MH16BX/nx+7XfLeSUVuwNFzoUYG4miBDGtXxEz8O0Dy6eR1OEOQzGxt8Jd/0
+         2gGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:feedback-id:list-unsubscribe
+         :content-transfer-encoding:mime-version:message-id:subject:from:to
+         :date:dkim-signature:dkim-signature;
+        bh=BiGXDdM2ckzGrORZIbvAyd743xmh/EsOR3X6Dw0AQco=;
+        fh=iA5J9BCzbYUyJoYJ45KYKndPfJqzHYmSC87xnKfMPQs=;
+        b=X9GSOkOoI8biB/qSyk+tUNwpMyzIGfjUqZza+CFKyyWMiWyHvQukvtxfwHe1moL2l6
+         FppUxjz92amzs4WmtvVQorZjEdut+De/vJU6nhF4tV5+brsuOH4dUVoILzIfB/fcGZ9U
+         UvJz9bJUNfMnFHPEsqxG94wHcYARZfrn/kSmKiksKaHj3g4glildKuPmZZRoCWv+N/Yc
+         vJ9nhSvr3kR4ETacxUNc+zczpid63kUIGEi9GwHDMRUD8H/cXBENY1P1KcbDZeWgkoQ7
+         kNYk7y2CIhaxEHcYCKZFzHM854kJsqIyBVDB8QGOAKystf/HEc3GflGNskQrFd4QmQME
+         D2NA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.kotak.in header.s=nc2048 header.b=fgwum3sf;
+       dkim=pass header.i=@env.etransmail.com header.s=fnc header.b=O6Frhe9m;
+       spf=pass (google.com: domain of 17657370039079586-182719-1-gmail.com@mail.kotak.in designates 202.162.244.80 as permitted sender) smtp.mailfrom=17657370039079586-182719-1-gmail.com@mail.kotak.in;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kotak.in
+Return-Path: <17657370039079586-182719-1-gmail.com@mail.kotak.in>
+Received: from d244-80.smtp-out.in.mail.kotak.in (d244-80.smtp-out.in.mail.kotak.in. [202.162.244.80])
+        by mx.google.com with ESMTPS id 6a1803df08f44-889a86ce338si77076276d6.596.2025.12.15.05.37.23
+        for <anmolbudhewar8@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Dec 2025 05:37:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of 17657370039079586-182719-1-gmail.com@mail.kotak.in designates 202.162.244.80 as permitted sender) client-ip=202.162.244.80;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.kotak.in header.s=nc2048 header.b=fgwum3sf;
+       dkim=pass header.i=@env.etransmail.com header.s=fnc header.b=O6Frhe9m;
+       spf=pass (google.com: domain of 17657370039079586-182719-1-gmail.com@mail.kotak.in designates 202.162.244.80 as permitted sender) smtp.mailfrom=17657370039079586-182719-1-gmail.com@mail.kotak.in;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kotak.in
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.kotak.in; s=nc2048;
+	h=list-unsubscribe-post:feedback-id:list-unsubscribe:content-transfer-encoding:
+	 content-type:mime-version:message-id:subject:from:to:from:to:subject;
+	bh=BiGXDdM2ckzGrORZIbvAyd743xmh/EsOR3X6Dw0AQco=;
+	b=fgwum3sfwA1NXTOWFAwdk6hbJz+GYJTSg8d8lcoLuYNEyyQbo6h+/qOj5lai3d7Rx+1WsOiNq7QMe
+	 jEJPkPwxOkGT4raKxmXomPLCHIpqGwe/T6UHmCgzDhn1s0KnlnmBbF7PfjnXZQAup4J1QStMsN+AV0
+	 m2qmdLMqQ/wXDK4QHngnfNJBgJYqG1R1qUGQOxIsVef+NGlDYfocXhUA6uA32oUHwqsDl1WcWQe5le
+	 cvc4fgmC3CCRyC/ZCWhLNV12p0sJYyQfZA8hhIPyB0WPpWmSx5DsfmuZZwIs3D4pUABwD+0a8YL7PC
+	 TSEuVjeIWCzJEkeP9m2gbHjZzl8KBvg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=env.etransmail.com; s=fnc;
+	h=list-unsubscribe-post:feedback-id:list-unsubscribe:content-transfer-encoding:
+	 content-type:mime-version:message-id:subject:from:to:from:to:subject;
+	bh=BiGXDdM2ckzGrORZIbvAyd743xmh/EsOR3X6Dw0AQco=;
+	b=O6Frhe9mAzQx0WZOf37nFUu+6LX2+pdp7MaZ6gJUAWtABuzhw16C5WHI5B50cNQhkjzAAI8KR15mJ
+	 yP7cf9FQ0awlLO9A2fMsbsQfmvhdOAcrE5v4jBKXwA/NKVlAveRp6lLGt2U1yuDF1Ez7fboNdTMsVN
+	 VNArb6BcRiLxfDjM=
+Date: Mon, 15 Dec 2025 19:07:23 +0530
+To: anmolbudhewar8@gmail.com
+From: =?UTF-8?B?S290YWsgRmFzdHJhY2sgUGVyc29uYWwgTG9hbiDwn5Kw?= <retailproducts@mail.kotak.in>
+Subject: =?UTF-8?B?SGV5IEFubW9sLCBOZWVkIOKCuTYwLDAwMCBmYXN0PyBZb3XigJlyZSBhbHJlYWR5IGFwcHJvdmVkISDinIU=?=
+Message-Id: <lqchjb17657370039079586@mail.kotak.in>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_----------=_1765805843231231414"
+Content-Transfer-Encoding: binary
+List-Unsubscribe: <https://unsub-api.netcorecloud.net/YHNMJN?id=182719=bUlRUlkBVgQPTBJBQRMRQRUREBBCGBISRBMWRhUWEkQYFUFDQRNBFRYQEkFBExFBFQFMBVQNUAUBBFcFAwABAFtTBFoFAFJQAVYHUQcGAlVWUAQGAQAABgdVAgJUUgdSAAMAVQcKVwMPAFMHAABUUQJVUUxTDwQHUwABVgUFC1QPDFRbV08JQUJAQVtOHEQPRkRSHQNIWxwKVkIFWkRXB1RaFAdPXQRBGWl6Lyx5f15cVUxGUQ==>, <mailto:17657370039079586-182719-fncunsub@usub.ftrans03.com?subject=Unsubscribe>
+Feedback-Id: 182719:202512:1:falconide
+X-Delivery: smt_promo|182719
+X-Fncid: 182719-17657370039079586-0
+X-Injtime: 1765805843
+X-Traffic-Type: 182719-3
+X-Mta-Source: smt_kotakcustsmartidc20240118_182719
+X-Mailer: NetcoreCloud Mailer
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+
+This is a multi-part message in MIME format.
+
+--_----------=_1765805843231231414
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+        Tap into instant Personal Loan=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0     Tap into instant Personal Loan =
+              If you are unable to view the below e-mailer, please click he=
+re .                     Your goals just got a green light!    Enjoy pre-ap=
+proved =E2=82=B960,000 instantly                      =C2=A0     We=E2=80=
+=99ve designed this loan to support your urgent financial needs,  which is =
+100% digital along with:       =C2=A0                Instant  disbursement =
+                    Zero  Documentation                     Empowering  70,=
+000+ customers  every month                     Our footprint spans  23,000=
++ PIN codes           =C2=A0                           =C2=A0              =
+ =C2=A0     Click here for terms and conditions.  Credit at sole discretion=
+ of Kotak Mahindra Bank Ltd. and subject to guidelines issued by RBI from t=
+ime to time. Bank may engage the services of marketing agents for the purpo=
+se of sourcing loan assets.     =C2=A0                                     =
+           Copyright & Disclaimer | Privacy Policy     Please do not reply =
+to this mail as this is an automated mail service.  In case you do not wish=
+ to receive any further marketing e-mails on your CRN ending with 0984,  Pl=
+ease Click Here to unsubscribe.                               =C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=20=20=20=
+=
+
+--_----------=_1765805843231231414
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns:v=3D"urn:schemas-=
+microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmln=
+s:w=3D"urn:schemas-microsoft-com:office:word"><!--fix Bulletproof button-->=
+<head> <meta charset=3D"UTF-8" /> <meta name=3D"viewport" content=3D"width=
+=3Ddevice-width, initial-scale=3D1, maximum-scale=3D1" /> <meta name=3D"for=
+mat-detection" content=3D"email=3Dno" /> <meta name=3D"format-detection" co=
+ntent=3D"telephone=3Dno" /> <meta name=3D"format-detection" content=3D"addr=
+ess=3Dno" /> <link href=3D"https://fonts.googleapis.com/css2?family=3DSourc=
+e+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=3Dswap" =
+rel=3D"stylesheet"> <link href=3D"https://fonts.googleapis.com/css2?family=
+=3DSource+Sans+3:ital,wght@0,200..900;1,200..900&display=3Dswap" rel=3D"sty=
+lesheet"> <style type=3D"text/css"> :root { color-scheme: light dark; suppo=
+rted-color-schemes: light dark; } .gmail { display: none !important; width:=
+ 0 !important; } a:link { color: #267ed4; } a:visited { color: #267ed4; } a=
+:hover { color: #267ed4; } a:active { color: #267ed4; } .nolinkcolor a { co=
+lor: #3D4543 !important; text-decoration: none !important; } /* start CTA H=
+OVER EFFECTS */ .rollover:hover { background-color: #333233 !important; } .=
+rolloverText:hover { color: #871911 !important; } /* end CTA HOVER EFFECTS =
+*/ table td { border-collapse: collapse !important; mso-table-lspace: 0pt; =
+mso-table-rspace: 0pt; } button { margin: 0 !important; padding: 0 !importa=
+nt; border: 0 !important; cursor: default !important; font-size: 0px !impor=
+tant; line-height: 0px !important; } td { font-size: 0px; line-height: 0px;=
+ mso-text-raise: 20% !important; } div { font-size: 0px; line-height: 0px; =
+} th { font-weight: normal !important; } @media only screen and (max-width:=
+ 480px) { body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none=
+; text-size-adjust: none; } table { width: 100% !important; } .no-mobile { =
+text-indent: -99999em !important; display: none !important; width: 0 !impor=
+tant; } .mobile-only { text-indent: 0 !important; display: block !important=
+; height: auto !important; visibility: visible !important; overflow: visibl=
+e !important; max-height: none !important; } .doubleCol { display: block !i=
+mportant; width: 100% !important; margin: 0 auto !important; } .wp100 { hei=
+ght: auto !important; max-width: 100% !important; width: 100% !important; }=
+ .socialwidth { width: 200px !important; } .pl10_pr10 { padding-left: 10px =
+!important; padding-right: 10px !important; } .w15 { width: 10px !important=
+; } .w100 { width: 100px !important; } .pt25 { padding-top: 25px !important=
+; } .fs24 { font-size: 24px !important; line-height: 28px !important; } .w1=
+33 { width: 123px !important; } .w70_h70 { width: 70px !important; height: =
+70px !important; } .w75 { width: 70px !important; } .w230 { width: 230px !i=
+mportant; } .pb10 { padding-bottom: 10px !important; } .fs22 { font-size: 2=
+2px !important; line-height: 26px !important; } .pb30 { padding-bottom: 30p=
+x !important; } .fixwidthdisclamier { width: 220px !important; } .w270 { wi=
+dth: 270px !important; } .w130 { width: 140px !important; margin: 0 auto !i=
+mportant; } .w147 { width: 147px !important; } .pt10 { padding-top: 10px !i=
+mportant; } .fs20 { font-size: 20px !important; line-height: 24px !importan=
+t; } .fs17 { font-size: 17px !important; line-height: 21px !important; } .f=
+s16 { font-size: 16px !important; line-height: 20px !important; } .w120 { w=
+idth: 120px !important; margin: 0 auto !important; } .pt15 { padding-top: 2=
+0px !important; } .pb15 { padding-bottom: 20px !important; } .w140 { width:=
+ 160px !important; height: auto !important; } .w225_ha { width: 225px !impo=
+rtant; height: auto !important; } .w90_ha { width: 90px !important; height:=
+ auto !important; } .fs18 { font-size: 18px !important; line-height: 22px !=
+important; } .pb5 { padding-bottom: 0px !important; } .fs12 { font-size: 11=
+px !important; line-height: 14px !important; } .pt10_pb10 { padding-top: 15=
+px !important; padding-bottom: 15px !important; } } </style></head><body cl=
+ass=3D"bg" yahoo=3D"fix" style=3D"margin: 0; padding: 0; font-family: 'Sour=
+ce Sans 3', sans-serif; font-size: 12px; line-height: 1.231; -webkit-text-s=
+ize-adjust: none;"><img border=3D"0" src=3D"https://lnk.mail.kotak.in/vtrac=
+k?sl=3DIkQrTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFNISwM=
+=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJGR6eW=
+cQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJVCQYHA=
+QZIBg=3D=3D&clientid=3D182718"><div style=3D"display: none; font-size: 1px;=
+ line-height: 1px; font-family: Verdana, Helvetica, sans-serif; max-height:=
+ 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all;">Tap int=
+o instant Personal Loan&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;</div> <div bgcolor=3D"#fffffc" align=3D"center"> <t=
+able bgcolor=3D"#fffffc" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" width=3D"100%" style=3D"margin: 0 auto;"> <!--PRE-HEADER-->=
+ <tr> <td id=3D"emailPreheader" style=3D"font-family:'Source Sans 3', sans-=
+serif; font-size:0px; line-height:0px; color:#fffffc; mso-hide:all;">Tap in=
+to instant Personal Loan </td> </tr> <!--EN OF PRE-HEADER--> <tr> <td align=
+=3D"center" width=3D"700" id=3D"iosWrapper"> <table width=3D"700" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td class=3D"pl10_pr10" style=
+=3D"font-size: 0px;line-height: 0px;"> <table width=3D"100%" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0"> <tr> <td align=3D"center" valign=3D"top=
+" style=3D"padding-top:10px;"> <table width=3D"100%" border=3D"0" align=3D"=
+center" cellpadding=3D"0" cellspacing=3D"0"> <tr> <td align=3D"center" vali=
+gn=3D"top" style=3D"font-family: 'Source Sans 3', sans-serif; font-size:10p=
+x; line-height:15px; color:#414042; text-align:center; padding-left:8px; pa=
+dding-right:8px; padding-bottom:8px;"> If you are unable to view the below =
+e-mailer, please <a href=3D"https://lnk.mail.kotak.in/vtrack?sl=3DIkQnTih3R=
+TUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFQMAgVFRQU=3D&ul=3DVwlW=
+BVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJGR6eWcQCixKdBR2XV1=
+BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJVCQYHAQZIBg=3D=3D&p=
+p=3DGBoUUxhVVgcGHhdRT0dmDhcPFV9NF0kWCx0fXVZYTFkAXV5NXAtEV18fXloYEERHUVMIWxZ=
+fCChZY1pjWVsBZDdtEmgjAGAxNFc7YnFhWm5NWWRzfFN8MllKamkIYl8SDFgPNVAMZXd2AXl1YQ=
+JiYXZ+KjILR0ciZGgNUld1A3EEeTxnFn9QMTRcKGIHen1uYmRmYVMufzd5WlNzVFtVYiZ+fwJaB=
+3FzXklcdXUgYlFlSAUxCWF6I1UPCRFFXw9gFFQzcDd8ciIkaQZ1ZQpvbmMAYGFvB3gwAAtTd35U=
+Onc5fmo7cQhRclxedGMGXlZkc0QqMCMCeQJ6Qnp9d2EEUzRbNXEIQXICIGJRbGECe2Ngbw5uahd=
+fK2dnVHJ5dTdiMHJQJGYtdHVlQm51Zj92cVx9KDEkdlMjc1l+dnULdWAibSVnBnNvJTNpK3VmaX=
+B7UggKEVoPUABfRllVBQJaBlYFCkEbRkBXTV1YVVNIRFBIRDxWRwkXUQsKABUcEUJXGlQLUwUXT=
+QMaRDwAFQkbDwUZBwcJQUQ=3D&clientid=3D182718&fl=3DC0wQQhIDFkkDQApdWR1XXEFWWE=
+VcEFQEQ0ZVUlAdAVsMG0RQGBRCU0JYUkMZFlhF&ext=3DbmM9dm0mbT01MDAyJnU9W1VOSVFJRF=
+0=3D" target=3D"_blank" style=3D"color:#414042; text-decoration:underline;"=
+>click here</a>.</td> </tr> </table> </td> </tr> <tr> <td style=3D"border-t=
+op: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px sol=
+id #000000;border-right: 1px solid #000000;"> <table width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td style=3D"font-size: 0p=
+x;line-height: 0px;"> <table width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0"> <tr> <td style=3D"font-size: 0px;line-height: 0px;"> <im=
+g src=3D"https://d1l8l3rp33cdzs.cloudfront.net/images/kotakcustsmartidc/tem=
+plates/3423/top_logo.jpg" width=3D"700" height=3D"59" style=3D"border:0; di=
+splay:block; font-size:10px; line-height:12px; text-align: center;" alt=3D"=
+top logo" class=3D"wp100" /> </td> </tr> <tr> <td style=3D"font-size: 0px;l=
+ine-height: 0px;" bgcolor=3D"#cbd9dc"> <table width=3D"100%" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0"> <tr> <td align=3D"center" class=3D"pl10=
+_pr10 fs22" style=3D"font-family: 'Source Sans 3', sans-serif; font-size:35=
+px; line-height:41px; color:#fa1432; text-align:center;padding-top: 25px; p=
+adding-left: 10px;padding-right: 10px;font-weight: bold;"> Your goals just =
+got a green light!</td> </tr> <tr> <td align=3D"center" class=3D"pl10_pr10 =
+fs20" style=3D"font-family: 'Source Serif 4', serif; font-size:25px; line-h=
+eight:32px; color:#2a317f; text-align:center;padding-top: 5px; padding-left=
+: 10px;padding-right: 10px;font-weight: bold;font-style: italic;"> Enjoy pr=
+e-approved &#8377;60,000 instantly </td> </tr> <tr> <td style=3D"font-size:=
+ 0px;line-height: 0px;padding-top: 10px;" align=3D"center"> <a href=3D"http=
+s://lnk.mail.kotak.in/vtrack?sl=3DIkQnTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=
+=3D&ml=3DVghUAB0NAVdRTFNIVntrCVZ9egF1GgAXUwFiWVlKV0IDWWQQVjMFRHhcBlh7VGJMam=
+cAEjxkABFRdUxfUlROBg=3D=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDho=
+CW18fQCtITF1LcHpNJGR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUA=
+EfBAkJAE8GVAUAUgJVCQYHAQZIBg=3D=3D&clientid=3D182718" target=3D"_blank"> <i=
+mg src=3D"https://d1l8l3rp33cdzs.cloudfront.net/images/kotakcustsmartidc/te=
+mplates/3423/full_cta_top.jpg" width=3D"700" height=3D"106" style=3D"border=
+:0; display:block; font-size:10px; line-height:12px; text-align: center;mar=
+gin: 0 auto;" alt=3D"top logo" class=3D"wp100" /> </a> </td> </tr> </table>=
+ </td> </tr> <tr> <td style=3D"font-size: 0px;line-height: 0px;"> <img src=
+=3D"https://images.kotak.com/bank/mailers/2025/files/PA_Regular.gif" width=
+=3D"700" height=3D"450" style=3D"border:0; display:block; font-size:10px; l=
+ine-height:12px; text-align: center;" alt=3D"top logo" class=3D"wp100" /> <=
+/td> </tr> <tr> <td style=3D"font-size: 0px;line-height: 0px;"> <table widt=
+h=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td style=
+=3D"font-size: 0px;line-height: 0px;" width=3D"40" class=3D"w15">&nbsp;</td=
+> <td style=3D"font-size: 0px;line-height: 0px;padding-top: 20px;"> <table =
+width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td a=
+lign=3D"center" class=3D"fs18" style=3D"font-family: 'Source Sans 3', sans-=
+serif; font-size:18px; line-height:23px; color:#00005a; text-align:center;p=
+adding-bottom: 20px;font-weight: 600;"> We&rsquo;ve designed this loan to s=
+upport your urgent financial needs, <br /> which is 100% digital along with=
+: </td> </tr> <tr> <td style=3D"font-size: 0px;line-height: 0px;"> <table w=
+idth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td st=
+yle=3D"font-size: 0px;line-height: 0px;" width=3D"10">&nbsp;</td> <td style=
+=3D"font-size: 0px;line-height: 0px;" align=3D"center"> <table width=3D"580=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td style=3D"font-=
+size: 0px;line-height: 0px;" class=3D"doubleCol pb15"> <table width=3D"125"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"w130"> <tr> <td =
+bgcolor=3D"#f2f2f4" style=3D"padding-top: 10px;padding-bottom: 10px;border-=
+radius: 5px;"> <table width=3D"100%" height=3D"115" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0"> <tr> <td height=3D"52" style=3D"font-size: 0px;l=
+ine-height: 0px;" align=3D"center" valign=3D"bottom"> <img src=3D"https://d=
+1l8l3rp33cdzs.cloudfront.net/images/kotakcustsmartidc/templates/3423/icon1.=
+png" width=3D"79" height=3D"42" style=3D"border:0; display:block; font-size=
+:10px; line-height:12px; text-align: center;margin: 0 auto;" alt=3D"icon1" =
+/> </td> </tr> <tr> <td align=3D"center" valign=3D"top" style=3D"font-famil=
+y: 'Source Sans 3', sans-serif; font-size:14px; line-height:18px; color:#00=
+0000; text-align:center; padding-top: 10px; padding-left: 5px;padding-right=
+: 5px;font-weight: 500;"> Instant <br /> disbursement </td> </tr> </table> =
+</td> </tr> </table> </td> <td style=3D"font-size: 0px;line-height: 0px;" w=
+idth=3D"5" class=3D"no-mobile"></td> <td style=3D"font-size: 0px;line-heigh=
+t: 0px;" class=3D"doubleCol pb15"> <table width=3D"130" border=3D"0" cellsp=
+acing=3D"0" cellpadding=3D"0" class=3D"w130"> <tr> <td bgcolor=3D"#f2f2f4" =
+style=3D"padding-top: 10px;padding-bottom: 10px;border-radius: 5px;"> <tabl=
+e width=3D"100%" height=3D"115" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0"> <tr> <td height=3D"52" style=3D"font-size: 0px;line-height: 0px;" a=
+lign=3D"center" valign=3D"bottom"> <img src=3D"https://d1l8l3rp33cdzs.cloud=
+front.net/images/kotakcustsmartidc/templates/3423/icon2.png" width=3D"81" h=
+eight=3D"43" style=3D"border:0; display:block; font-size:10px; line-height:=
+12px; text-align: center;margin: 0 auto;" alt=3D"icon1" /> </td> </tr> <tr>=
+ <td align=3D"center" valign=3D"top" style=3D"font-family: 'Source Sans 3',=
+ sans-serif; font-size:14px; line-height:18px; color:#000000; text-align:ce=
+nter;padding-top: 10px;padding-left: 5px;padding-right: 5px;font-weight: 50=
+0;"> Zero <br /> Documentation </td> </tr> </table> </td> </tr> </table> </=
+td> <td style=3D"font-size: 0px;line-height: 0px;" width=3D"5" class=3D"no-=
+mobile"></td> <td style=3D"font-size: 0px;line-height: 0px;" class=3D"doubl=
+eCol pb15"> <table width=3D"125" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" class=3D"w130"> <tr> <td bgcolor=3D"#f2f2f4" style=3D"padding-top: 1=
+0px;padding-bottom: 10px;border-radius: 5px;"> <table width=3D"100%" height=
+=3D"95" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td height=
+=3D"55" style=3D"font-size: 0px;line-height: 0px;" align=3D"center" valign=
+=3D"bottom"> <img src=3D"https://d1l8l3rp33cdzs.cloudfront.net/images/kotak=
+custsmartidc/templates/3423/icon3.png" width=3D"76" height=3D"45" style=3D"=
+border:0; display:block; font-size:10px; line-height:12px; text-align: cent=
+er;margin: 0 auto;" alt=3D"icon1" /> </td> </tr> <tr> <td align=3D"center" =
+valign=3D"top" style=3D"font-family: 'Source Sans 3', sans-serif; font-size=
+:14px; line-height:18px; color:#000000; text-align:center; padding-top: 10p=
+x; padding-left: 5px;padding-right: 5px;font-weight: 500;"> Empowering <br =
+/> 70,000+ customers <br /> every month </td> </tr> </table> </td> </tr> </=
+table> </td> <td style=3D"font-size: 0px;line-height: 0px;" width=3D"5" cla=
+ss=3D"no-mobile"></td> <td style=3D"font-size: 0px;line-height: 0px;" class=
+=3D"doubleCol"> <table width=3D"130" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" class=3D"w130"> <tr> <td bgcolor=3D"#f2f2f4" style=3D"padding-to=
+p: 10px;padding-bottom: 10px;border-radius: 5px;"> <table width=3D"100%" he=
+ight=3D"120" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td hei=
+ght=3D"60" style=3D"font-size: 0px;line-height: 0px;" align=3D"center" vali=
+gn=3D"bottom"> <img src=3D"https://d1l8l3rp33cdzs.cloudfront.net/images/kot=
+akcustsmartidc/templates/3423/icon4.png" width=3D"76" height=3D"46" style=
+=3D"border:0; display:block; font-size:10px; line-height:12px; text-align: =
+center;margin: 0 auto;" alt=3D"icon1" /> </td> </tr> <tr> <td align=3D"cent=
+er" valign=3D"top" style=3D"font-family: 'Source Sans 3', sans-serif; font-=
+size:14px; line-height:18px; color:#000000; text-align:center; padding-top:=
+ 10px; padding-left: 5px;padding-right: 5px;font-weight: 500;"> Our footpri=
+nt spans <br /> 23,000+ PIN codes </td> </tr> </table> </td> </tr> </table>=
+ </td> </tr> </table> </td> <td style=3D"font-size: 0px;line-height: 0px;" =
+width=3D"10">&nbsp;</td> </tr> </table> </td> </tr> <tr> <td style=3D"font-=
+size: 0px;line-height: 0px;padding-top: 35px;" align=3D"center"> <table wid=
+th=3D"205" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"w140">=
+ <tr> <td style=3D"font-size: 0px;line-height: 0px;"> <a href=3D"https://ln=
+k.mail.kotak.in/vtrack?sl=3DIkQnTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=
+=3DVghUAB0NAVdRTFNIVntrCVZ9egF1GgAXUwFiWVlKV0IDWWQQVjMFRHhcBlh7VGJMamcAEjxk=
+ABFRdUxfUlROBg=3D=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQ=
+CtITF1LcHpNJGR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJ=
+AE8GVAUAUgJVCQYHAQZIBg=3D=3D&clientid=3D182718" target=3D"_blank"> <img cla=
+ss=3D"w140" src=3D"https://d1l8l3rp33cdzs.cloudfront.net/images/kotakcustsm=
+artidc/templates/3423/get_now_cta.png" width=3D"205" height=3D"33" style=3D=
+"border:0; display:block; font-size:10px; line-height:12px; text-align: cen=
+ter;margin: 0 auto;" alt=3D"icon1" /> </a> </td> </tr> </table> </td> </tr>=
+ <tr> <td style=3D"font-size: 0px;line-height: 0px;padding-top: 10px;paddin=
+g-bottom: 25px;" align=3D"center"> <a href=3D"https://lnk.mail.kotak.in/vtr=
+ack?sl=3DIkQnTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFYHBg=
+VFRQU=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJ=
+GR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJV=
+CQYHAQZIBg=3D=3D&pp=3D0&clientid=3D182718&fl=3DC0wQQhIDFkkJXxdVXFJJSRtaWVJV=
+ClcOH19VHmBcE1tOR0cTRwtCQg=3D=3D&ext=3D" target=3D"_blank"> <img src=3D"htt=
+ps://d1l8l3rp33cdzs.cloudfront.net/images/kotakcustsmartidc/templates/3423/=
+kotab_app_img.jpg" width=3D"590" height=3D"166" style=3D"border:0; display:=
+block; font-size:10px; line-height:12px; text-align: center;margin: 0 auto;=
+" alt=3D"top logo" class=3D"wp100" /> </a> </td> </tr> </table> </td> <td s=
+tyle=3D"font-size: 0px;line-height: 0px;" width=3D"40" class=3D"w15">&nbsp;=
+</td> </tr> </table> </td> </tr> </table> </td> </tr> <tr> <td align=3D"cen=
+ter" style=3D"font-size: 0px;line-height: 0px;"> <table width=3D"620" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <td align=3D"center" styl=
+e=3D"font-size: 0px;line-height: 0px;border-bottom: 1px solid #b3b0b0;"> <t=
+able width=3D"620" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"> <tr> <=
+td style=3D"font-size: 0px;line-height: 0px;" width=3D"10" class=3D"w15">&n=
+bsp;</td> <td style=3D"font-size: 0px;line-height: 0px;padding-bottom: 10px=
+;"> <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=
+ <tr> <td align=3D"center" valign=3D"top" style=3D"font-family: 'Source San=
+s 3', sans-serif; font-size:10px; line-height:12px; color:#000000; text-ali=
+gn:left;"> <a href=3D"https://lnk.mail.kotak.in/vtrack?sl=3DIkQnTih3RTUvZB9=
+YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFINAk9FCQ=3D=3D&ul=3DVwlWBVEK=
+DFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJGR6eWcQCixKdBR2XV1BZUZ=
+9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJVCQYHAQZIBg=3D=3D&pp=3D=
+0&clientid=3D182718&fl=3DC0wQQhIDFkkLXQJTUkAXUlpBVlwXAFYIHlBRX1McD1UIWFcRRE=
+sCBgYCGFJeClVGH3YCFxFBVAJZbWBSQl5Bdw1cJ10PXU0PDV4Qa3pSQAsFBwQZSQdf&ext=3D" =
+target=3D"_blank" style=3D"color: #000000;text-decoration: underline;">Clic=
+k here</a> for terms and conditions. <br /> Credit at sole discretion of Ko=
+tak Mahindra Bank Ltd. and subject to guidelines issued by RBI from time to=
+ time. Bank may engage the services of marketing agents for the purpose of =
+sourcing loan assets. </td> </tr> </table> </td> <td style=3D"font-size: 0p=
+x;line-height: 0px;" width=3D"10" class=3D"w15">&nbsp;</td> </tr> </table> =
+</td> </tr> </table> </td> </tr> <tr> <td align=3D"center" valign=3D"top" c=
+lass=3D""> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" class=3D""> <tbody> <tr> <td align=3D"center" valign=3D"top" bgcolor=
+=3D"#ffffff" class=3D"innerpadding" style=3D"background-color: #ffffff; fon=
+t-family: 'Source Sans 3', Sans-serif;" width=3D"100%"> <table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0"> <tbody> <tr> <td align=3D"center" va=
+lign=3D"top" class=3D"" style=3D""> <table border=3D"0" align=3D"center" ce=
+llpadding=3D"0" cellspacing=3D"0" class=3D""> <tbody> <tr> <td width=3D"100=
+%" style=3D""> <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" widt=
+h=3D"100%"> <tbody> <tr> <td style=3D"text-align: center;padding-top: 10px;=
+padding-bottom: 10px;"> <a href=3D"https://lnk.mail.kotak.in/vtrack?sl=3DIk=
+QnTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFIND09FCQ=3D=3D&=
+ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJGR6eWcQCi=
+xKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJVCQYHAQZIB=
+g=3D=3D&pp=3D0&clientid=3D182718&fl=3DC0wQQhIDFkkVRxQaUVJaXFdaWFwXAFYIHnlfR=
+VlYIFUPXw=3D=3D&ext=3D" target=3D"_blank" style=3D"display: inline-block; p=
+adding: 0;"> <img height=3D"40" width=3D"40" src=3D"https://d1l8l3rp33cdzs.=
+cloudfront.net/images/kotakcustsmartidc/templates/3423/facebook-01.png" alt=
+=3D"Facebook" style=3D"width: 40px; height: 40px;"> </a> <a href=3D"https:/=
+/lnk.mail.kotak.in/vtrack?sl=3DIkQnTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&m=
+l=3DVghUAB0NAVdRTFIBBAdFRQU=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFl=
+aDhoCW18fQCtITF1LcHpNJGR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDl=
+MKUAEfBAkJAE8GVAUAUgJVCQYHAQZIBg=3D=3D&pp=3D0&clientid=3D182718&fl=3DC0wQQh=
+IDFkkaHgBbWhxyVkFUXHVYDVIpRVY=3D&ext=3D" target=3D"_blank" style=3D"display=
+: inline-block; padding: 0;"> <img height=3D"40" width=3D"40" src=3D"https:=
+//d1l8l3rp33cdzs.cloudfront.net/images/kotakcustsmartidc/templates/3423/twi=
+tter-01.png" alt=3D"Twitter" style=3D"width: 40px; height: 40px;"> </a> <a =
+href=3D"https://lnk.mail.kotak.in/vtrack?sl=3DIkQnTih3RTUvZB9YWVgXVFRcWxlSD=
+E0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFEEB09FCQ=3D=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVV=
+dAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJGR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUV=
+QFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJVCQYHAQZIBg=3D=3D&pp=3D0&clientid=3D1=
+82718&fl=3DC0wQQhIDFkkVRxQaTlxMTUBXUhlaDFRKREFVQxd4DUAAX3ACWQ95WFBYVg=3D=3D=
+&ext=3D" target=3D"_blank" style=3D"display: inline-block; padding: 0"> <im=
+g height=3D"40" width=3D"40" src=3D"https://d1l8l3rp33cdzs.cloudfront.net/i=
+mages/kotakcustsmartidc/templates/3423/youtube-01.png" alt=3D"youtube" styl=
+e=3D"width: 40px; height: 40px;"> </a> <a href=3D"https://lnk.mail.kotak.in=
+/vtrack?sl=3DIkQnTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTF=
+AHD09FCQ=3D=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1=
+LcHpNJGR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVA=
+UAUgJVCQYHAQZIBg=3D=3D&pp=3D0&clientid=3D182718&fl=3DC0wQQhIDFkkVRxQaW1pXUl=
+BRXlkXAFYIHlFfXEhSDE1OX10XVg8dW1VZXlpTFFEYUlEND0o=3D&ext=3D" target=3D"_bla=
+nk" style=3D"display: inline-block; padding: 0;"> <img height=3D"40" width=
+=3D"40" src=3D"https://d1l8l3rp33cdzs.cloudfront.net/images/kotakcustsmarti=
+dc/templates/3423/LinkedIn-01.png" alt=3D"LinkedIn" style=3D"width: 40px; h=
+eight: 40px;"> </a> <a href=3D"https://lnk.mail.kotak.in/vtrack?sl=3DIkQnTi=
+h3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFcFAARFRQU=3D&ul=3DV=
+wlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJGR6eWcQCixKdBR2=
+XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJVCQYHAQZIBg=3D=
+=3D&pp=3D0&clientid=3D182718&fl=3DC0wQQhIDFkkVRxQaXl1KTVRSRVZUTVoKXB1bXkxSC=
+VYAWlkPQwAf&ext=3DaWdzaD1kM28wWW1wdmVEQm9Zakp0" target=3D"_blank" style=3D"=
+display: inline-block; padding: 0;"> <img height=3D"40" width=3D"40" src=3D=
+"https://d1l8l3rp33cdzs.cloudfront.net/images/kotakcustsmartidc/templates/3=
+423/insta-01.png" alt=3D"instagram" style=3D"width: 40px; height: 40px;"> <=
+/a> </td> </tr> </tbody> </table> </td> </tr> <tr> <td valign=3D"top" align=
+=3D"center" style=3D"font-size: 10px; text-align: center; color: #000;text-=
+decoration: none; font-weight: 600; padding: 5px 0; font-family: 'Source Sa=
+ns 3', Sans-serif;" class=3D"font-size-10"><a href=3D"https://lnk.mail.kota=
+k.in/vtrack?sl=3DIkQnTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAV=
+dRTFINAU9FCQ=3D=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCt=
+ITF1LcHpNJGR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE=
+8GVAUAUgJVCQYHAQZIBg=3D=3D&pp=3D0&clientid=3D182718&fl=3DC0wQQhIDFkkVRxQaXF=
+xNWF4bVFhUTFwLHlZZQltfA10MUUBNXxBdWg=3D=3D&ext=3D" target=3D"_blank" style=
+=3D"text-decoration: underline; color:#000000;">Copyright &amp; Disclaimer<=
+/a> | <a href=3D"https://lnk.mail.kotak.in/vtrack?sl=3DIkQnTih3RTUvZB9YWVgX=
+VFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTFINAE9FCQ=3D=3D&ul=3DVwlWBVEKDFYeA=
+R9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJGR6eWcQCixKdBR2XV1BZUZ9YStf=
+NVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJVCQYHAQZIBg=3D=3D&pp=3D0&cli=
+entid=3D182718&fl=3DC0wQQhIDFkkVRxQaXFxNWF4bVFhUTFwLHkJCWE5SAU1MRF0PXgdJGFx=
+FWlg=3D&ext=3D" target=3D"_blank" style=3D"text-decoration: underline;color=
+:#000000;">Privacy Policy</a> </td> </tr> <tr> <td bgcolor=3D"#ffffff" styl=
+e=3D"font-size: 10px; line-height: 14px; text-align: center; font-weight: 4=
+00; font-family: 'Source Sans 3', Sans-serif; color: #000000;padding-top: 5=
+px;"> Please do not reply to this mail as this is an automated mail service=
+. <br> In case you do not wish to receive any further marketing e-mails on =
+your CRN ending with 0984, <br> Please <a href=3D"https://lnk.mail.kotak.in=
+/vtrack?sl=3DIkQxTih3RTUvZB9YWVgXVFRcWxlSDE0EWhxZX0Q=3D&ml=3DVghUAB0NAVdRTF=
+NISwM=3D&ul=3DVwlWBVEKDFYeAR9VWV5WVVdAU19cFFgXCXJXXFlaDhoCW18fQCtITF1LcHpNJ=
+GR6eWcQCixKdBR2XV1BZUZ9YStfNVUdCAFUVQFbGQIDCQsYAQYFDlMKUAEfBAkJAE8GVAUAUgJV=
+CQYHAQZIBg=3D=3D&clientid=3D182718" target=3D"_blank" style=3D"color: #0000=
+00; text-decoration: underline;">Click Here</a> to unsubscribe. </td> </tr>=
+ <tr> <td style=3D"height: 10px; line-height: 10px;"></td> </tr> </tbody> <=
+/table> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> <=
+/tr> </table> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table=
+> </div> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"> <tr> &nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <td class=3D"no-mobile" style=3D"min-width=
+:500px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div class=3D"gm=
+ail" style=3D"white-space:nowrap; font:15px courier; line-height:0;">&nbsp;=
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
+p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &n=
+bsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div> </td> </tr> </t=
+able></body></html>=
+=
+
+--_----------=_1765805843231231414--
+
